@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<div class="container">
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+      <span class="fs-4"></span>
+    </a>
+
+    <ul class="nav nav-pills">
+      <li class="nav-item"><a routerLink="/dashboard"class="nav-link active" aria-current="page">Home</a></li>
+    </ul>
+    <div>
+    <form  id="myform" class="search" > 
+      <input id="books" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
+      <button class="btn btn-outline-success" onclick="getbusqueda()" >Search</button>
+      <script src="./fuction.js"></script>
+    </form> 
+      </div>
+    <div class=" col-md-3 text-end">
+      <button type="button" class="btn btn-warning" onclick="cerrarsesion()">Cerrar sesion</button>
+    </div>
+
+  </header>
+  
+</div>
+  <div class="wrapper"  id="featured-3"> 
+    <h2  class="pb-2 border-bottom">Bibloteca</h2>
+
+   <br>
+  <section class="container__card">
+      <div class="row-cols-md-3 g-4" *ngFor="let libro of libro" >
+        <div class="card__father">
+          <div class="card">
+          <div class="card__front">
+            <img  class="card__front" width=""  src="{{libro.volumeInfo.imageLinks.thumbnail}}" class="img-fluid rounded-start" alt="4">
+          </div>
+          <div class="bg"></div>
+              <!-- <h5 class="body__card_subtitle">{{libro.volumeInfo.title}}</h5> -->
+              <!-- <p class="body__card_subtitle">{{libro.volumeInfo.subtitle}}</p> -->
+              <!-- <p class="body__card_subtitle"> Authors:{{libro.volumeInfo.authors}}</p> -->
+              <div class="card__back">
+                <div class="bg"></div>
+                <!-- <img  class="card__front" width="50%"  src="{{libro.volumeInfo.imageLinks.smallThumbnail}}" class="img-fluid rounded-start" alt="4"> -->
+               <!-- <p class=""> Info:   {{libro.saleInfo.saleability }}</p> -->
+               <!-- <p class=""> ContentVersion:   {{libro.volumeInfo. contentVersion}}</p> -->
+               <h5 class="descripcion">Title:{{libro.volumeInfo.title}}</h5>
+              <!-- <p class="descripcion"> PublishedDate:   {{libro.volumeInfo.publishedDate}}</p> -->
+                <p class="descripcion">Language:      {{libro.volumeInfo.language}}</p>
+                <p class="descripcion">Categories:     {{libro.volumeInfo.categories}}</p>
+                <p class="descripcion">Authors:{{libro.volumeInfo.authors}}</p>
+                <button class="descripcion"  type="button" id="Desc">Ver mas</button>
+              </div>
+            </div>
+          </div>  
+        </div>
+    </section>
+    
+  </div> 

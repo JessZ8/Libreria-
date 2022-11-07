@@ -1,0 +1,21 @@
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        <span class="fs-4"></span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a routerLink="/dashboard"class="nav-link active" aria-current="page">Home</a></li>
+      </ul>
+      <form class="search" role="search"> 
+        <input  #searchInput class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit" onclick="getbusqueda()">Search</button>
+      </form> 
+      <div class=" col-md-3 text-end">
+        <button type="button" class="btn btn-warning" onclick="cerrarsesion()">Cerrar sesion</button>
+      </div>
+
+    </header>
+    
+  </div>
