@@ -37,10 +37,6 @@ InputSearch?: ElementRef
 
   ngOnInit(): void {
 
-    this.service.textObservable.subscribe(text=>{
-       this.test =(text) 
-    })
-
   }
 
 cerrarsesion() {

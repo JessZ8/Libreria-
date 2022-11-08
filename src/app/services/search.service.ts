@@ -6,16 +6,22 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class SearchService {
 
-  private textSubject : BehaviorSubject<string>
-  public textObservable : Observable<string>
+
 
   constructor() { 
-    this.textSubject = new BehaviorSubject<string>('')
-    this.textObservable = this.textSubject.asObservable()
+    
+  }
+  public loadScript() {
+    console.log('preparing to load...')
+    let node = document.createElement('script');
+    node.src = '../../assets/js/index.js';
+    node.src = '../../assets/js/template.ejs'
+    node.type = 'text/javascript';
+    node.async = true;
+    document.getElementsByTagName('body')[0].appendChild(node);
   }
 
-emiText(chars: string){
-  this.textSubject.next(chars)
-}
+ 
+
 
 }

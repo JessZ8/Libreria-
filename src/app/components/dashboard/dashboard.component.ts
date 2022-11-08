@@ -8,7 +8,7 @@ import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { SearchService } from 'src/app/services/search.service';
 import { title } from 'process';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { VolumeInfo } from '../../models/books';
+import { VolumeInfo, Item } from '../../models/books';
 import { keepUnstableUntilFirst } from '@angular/fire';
 
 
@@ -30,13 +30,14 @@ public desc : any= [];
 InputSearch?: ElementRef
 
   constructor( 
+    private searchs : SearchService,
     private http: HttpClient,
     private service: SearchService,
     private afAuth: AngularFireAuth, 
     private router: Router,
     private errorsService: ErrorsService
     ) {
-
+       this.searchs.loadScript();
  }
 
 
@@ -64,7 +65,16 @@ cerrarsesion() {
    });
  }
 
- 
+ vermas(){
+  this.http.get<Pokedex>('https://www.googleapis.com/books/v1/volumes?q=' ) 
+  .subscribe( (resp: Pokedex) =>{ 
+    for(var i = 0 ; i < resp.items.length; i+=4){
+      this.libro=resp.items[i];
+
+
+    }
+  });
+}
   
  }
 

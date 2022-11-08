@@ -35,21 +35,12 @@ export class NavbarComponent implements OnInit {
    }
   
    ngAfterViewInit(){
-    fromEvent<any>(this.InputSearch?.nativeElement, 'keyup')
-    .pipe(
-      map(event=> event.target.value),
-      debounceTime(400),
-      distinctUntilChanged()
-    ).subscribe(text => this.service.emiText(text))
   
     
    }
   
     ngOnInit(): void {
      
-      this.service.textObservable.subscribe(text=>{
-         this.test =(text) 
-      })
   
     }
   
